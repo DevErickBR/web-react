@@ -7,7 +7,8 @@ import styled from "./DestinosDeInteresse.module.css"
 export const DestinoDeInteresse = () => {
     const [paises, setPaises] = useState<Country[]>([]);
     const [cidades, setCidades] = useState<Cities[]>([]);
-    const [option] = useState(paises)
+    const [optionsCountry, setOptionsCountry] = useState<object[]>([]);
+    const [optionsCities, setOptionsCities] = useState<object[]>([]);
 
     const loadPaises = async () => {
         let response = await fetch("https://amazon-api.sellead.com/country");
@@ -21,37 +22,36 @@ export const DestinoDeInteresse = () => {
         setCidades(json)
     };
 
+    const addOpCountry = () => {
+        setOptionsCountry(paises.map((item) => ({ value: item.name_ptbr, label: item.name_ptbr })))
+    };
+
+    const addOpCities = () => {
+        setOptionsCities(cidades.map((item) => ({ value: item.name_ptbr, label: item.name_ptbr })))
+    }
+
     useEffect(() => {
         loadPaises();
         loadCidades();
     }, []);
+
+    useEffect(() => {
+        addOpCountry()
+        addOpCities()
+    }, [loadPaises, loadCidades])
     return (
         <div className={styled.body}>
             <div className={styled.container}>
                 <h2>Destinos de Interesse</h2>
-                <Select options={option} />
-                <label>País
-                    <select multiple>
-                        <option>Selecione...</option>
-                        {paises.map((item, index) => (
-                            <option key={index}>{item.name_ptbr}</option>
-                        ))}
-                    </select>
-                </label>
+                <div className={styled.square}>
+                    <h3>País</h3>
+                    <Select options={optionsCountry} isMulti />
+                </div>
 
-                <label>Cidades
-                    <select>
-                        <option>Selecione...</option>
-                        {cidades.map((item, index) => (
-                            <option key={index}>
-                                {item.name_ptbr}
-                                {item.name_ptbr == null &&
-                                    item.name
-                                }
-                            </option>
-                        ))}
-                    </select>
-                </label>
+                <div className={styled.square}>
+                    <h3>Cidades</h3>
+                    <Select options={optionsCities} isMulti />
+                </div>
             </div>
         </div>
     );
