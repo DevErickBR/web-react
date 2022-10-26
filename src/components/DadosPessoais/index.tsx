@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import InputMask from 'react-input-mask'
-import styled from './dadosPessoais.module.css'
+import styled from './DadosPessoais.module.css'
 
 export const DadosPessoais = () => {
     const [cpf, setCpf] = useState<string>("");

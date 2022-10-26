@@ -1,0 +1,7 @@
+.container {
+    background-color: #070F21;
+    flex: 1;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+}
