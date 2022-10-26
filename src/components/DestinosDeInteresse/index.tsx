@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Country } from "../types/Country"
-import { Cities } from "../types/Cities"
+import { Country } from "../../types/Country"
+import { Cities } from "../../types/Cities"
 
 export const DestinoDeInteresse = () => {
     const [paises, setPaises] = useState<Country[]>([]);

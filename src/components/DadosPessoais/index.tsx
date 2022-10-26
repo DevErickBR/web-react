@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InputMask from 'react-input-mask'
+import styled from './dadosPessoais.module.css'
 
 export const DadosPessoais = () => {
     const [cpf, setCpf] = useState<string>("");
@@ -8,7 +9,7 @@ export const DadosPessoais = () => {
     const [nome, setNome] = useState<string>("");
 
     return (
-        <div>
+        <div className={styled.container}>
 
             <h2>Dados Pessoais</h2>
 
@@ -17,7 +18,7 @@ export const DadosPessoais = () => {
                 <input
                     type='text'
                     value={nome}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNome(e.target.value)}
                 />
 
             </fieldset>
