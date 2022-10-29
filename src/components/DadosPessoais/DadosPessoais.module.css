@@ -36,3 +36,36 @@
 
     transition: all 0.2s;
 }
+
+.container form {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0%;
+    align-items: center;
+}
+
+.container button {
+    padding: 10px;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    background: rgb(85, 123, 246);
+    background: linear-gradient(45deg, rgba(85, 123, 246, 1) 0%, rgba(30, 68, 190, 1) 100%);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.2S ease-in;
+}
+
+button:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+}
